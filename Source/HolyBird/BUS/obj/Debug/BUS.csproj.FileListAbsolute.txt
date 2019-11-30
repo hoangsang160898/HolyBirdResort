@@ -1,0 +1,10 @@
+C:\Users\Leo Nguyen\source\repos\HolyBird\BUS\bin\Debug\BUS.dll
+C:\Users\Leo Nguyen\source\repos\HolyBird\BUS\bin\Debug\BUS.pdb
+C:\Users\Leo Nguyen\source\repos\HolyBird\BUS\bin\Debug\DAO.dll
+C:\Users\Leo Nguyen\source\repos\HolyBird\BUS\bin\Debug\DTO.dll
+C:\Users\Leo Nguyen\source\repos\HolyBird\BUS\bin\Debug\DAO.pdb
+C:\Users\Leo Nguyen\source\repos\HolyBird\BUS\bin\Debug\DTO.pdb
+C:\Users\Leo Nguyen\source\repos\HolyBird\BUS\obj\Debug\BUS.csprojAssemblyReference.cache
+C:\Users\Leo Nguyen\source\repos\HolyBird\BUS\obj\Debug\BUS.csproj.CopyComplete
+C:\Users\Leo Nguyen\source\repos\HolyBird\BUS\obj\Debug\BUS.dll
+C:\Users\Leo Nguyen\source\repos\HolyBird\BUS\obj\Debug\BUS.pdb

@@ -1,0 +1,12 @@
+﻿<Window x:Class="GUI.LogIn"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI"
+        mc:Ignorable="d"
+        Title="Log In" Height="450" Width="800" Loaded="Window_Loaded_Employees">
+    <Grid>
+        <Label Content="Label" HorizontalAlignment="Left" Name="testQueryDatabase" Margin="302,117,0,0" VerticalAlignment="Top" Width="201" Grid.ColumnSpan="2"/>
+    </Grid>
+</Window>

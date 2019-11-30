@@ -1,0 +1,5 @@
+C:\Users\Leo Nguyen\source\repos\HolyBird\DTO\bin\Debug\DTO.dll
+C:\Users\Leo Nguyen\source\repos\HolyBird\DTO\bin\Debug\DTO.pdb
+C:\Users\Leo Nguyen\source\repos\HolyBird\DTO\obj\Debug\DTO.csprojAssemblyReference.cache
+C:\Users\Leo Nguyen\source\repos\HolyBird\DTO\obj\Debug\DTO.dll
+C:\Users\Leo Nguyen\source\repos\HolyBird\DTO\obj\Debug\DTO.pdb

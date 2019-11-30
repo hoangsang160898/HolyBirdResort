@@ -1,0 +1,8 @@
+C:\Users\Leo Nguyen\source\repos\HolyBird\DAO\bin\Debug\DAO.dll
+C:\Users\Leo Nguyen\source\repos\HolyBird\DAO\bin\Debug\DAO.pdb
+C:\Users\Leo Nguyen\source\repos\HolyBird\DAO\bin\Debug\DTO.dll
+C:\Users\Leo Nguyen\source\repos\HolyBird\DAO\bin\Debug\DTO.pdb
+C:\Users\Leo Nguyen\source\repos\HolyBird\DAO\obj\Debug\DAO.csprojAssemblyReference.cache
+C:\Users\Leo Nguyen\source\repos\HolyBird\DAO\obj\Debug\DAO.csproj.CopyComplete
+C:\Users\Leo Nguyen\source\repos\HolyBird\DAO\obj\Debug\DAO.dll
+C:\Users\Leo Nguyen\source\repos\HolyBird\DAO\obj\Debug\DAO.pdb
