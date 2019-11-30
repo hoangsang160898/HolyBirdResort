@@ -1,6 +1,6 @@
 # Hệ Quản Trị Cơ Sở Dữ Liệu
 ## Đề tài: HolyBird
-### Giảng Viên: Tuần Nguyên Hoài Đức
+### Giảng Viên: Tuấn Nguyên Hoài Đức
 
 #### Thành viên nhóm:
 | MSSV | Họ và tên | Email | Số điện thoại |
