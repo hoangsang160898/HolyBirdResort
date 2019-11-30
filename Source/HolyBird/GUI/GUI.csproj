@@ -111,5 +111,11 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\g17176-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\Travel-background1-1400x800.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

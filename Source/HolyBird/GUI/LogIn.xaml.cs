@@ -23,14 +23,18 @@ namespace GUI
     {
         public LogIn()
         {
-         
+            //Username: login_username__name
+            //Password: login_password__name
             InitializeComponent();
         }
-
         private void Window_Loaded_Employees(object sender, RoutedEventArgs e)
         {
             Global.employees = EmployeeBUS.LoadEmployees();
-            testQueryDatabase.Content = Global.employees[0].Name;
+        }
+
+        private void login_submit__click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
