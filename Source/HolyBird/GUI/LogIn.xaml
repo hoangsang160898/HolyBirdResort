@@ -7,6 +7,7 @@
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
         Icon="images/g17176-512.png"
+        ResizeMode="CanMinimize"
         Title="HolyBird" Height="450" Width="800" Loaded="Window_Loaded_Employees"  WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.Background>
@@ -15,7 +16,7 @@
         <TextBox Name="login_username__name" HorizontalAlignment="Left" Height="28" Margin="168,120,0,0" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Username" VerticalAlignment="Top" Width="171" RenderTransformOrigin="-2.2,0.217" FontSize="14"/>
         <PasswordBox Name="login_password__name" materialDesign:HintAssist.Hint="Password" HorizontalAlignment="Left"  Margin="168,152,0,0" VerticalAlignment="Top" Width="171" RenderTransformOrigin="1.27,1.085" FontSize="14"/>
         <Button Click="login_submit__click" Content="Login" HorizontalAlignment="Left" Margin="168,193,0,0" VerticalAlignment="Top" Width="171"/>
-        <Label Content="Welcome to" HorizontalAlignment="Left" Margin="619,46,0,0" VerticalAlignment="Top" Width="109" HorizontalContentAlignment="Center" FontSize="16"/>
-        <Label Content="HolyBird" HorizontalAlignment="Left" Margin="608,68,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Rage Italic" FontSize="36" Width="144"/>
+        <Label Content="Welcome to" HorizontalAlignment="Left" Margin="637,48,0,0" VerticalAlignment="Top" Width="109" HorizontalContentAlignment="Center" FontSize="16"/>
+        <Label Content="HolyBird" HorizontalAlignment="Left" Margin="629,64,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Segoe Print" FontSize="24" Width="144"/>
     </Grid>
 </Window>

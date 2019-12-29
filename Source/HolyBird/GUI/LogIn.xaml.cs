@@ -30,11 +30,27 @@ namespace GUI
         private void Window_Loaded_Employees(object sender, RoutedEventArgs e)
         {
             Global.employees = EmployeeBUS.LoadEmployees();
+            Keyboard.Focus(login_username__name);
         }
 
         private void login_submit__click(object sender, RoutedEventArgs e)
         {
-
+            var window = new Window();
+            window.Close();
+            switch (login_username__name.Text)
+            {
+                case "c":
+                    window = new DashboardCustomer();
+                    break;
+                case "e":
+                    window = new DashboardEmployee();
+                    break;
+                default:
+                    window = new LogIn();
+                    break;
+            }
+            window.Show();
+            this.Close();
         }
     }
 }

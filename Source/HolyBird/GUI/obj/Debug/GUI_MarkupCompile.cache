@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Leo Nguyen\Desktop\Nguyen_Data\University\DBMS_TNHD\Source\HolyBird\GUI\obj\Debug\
+C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\GUI\obj\Debug\
 GUI
 none
 false
 DEBUG;TRACE
-C:\Users\Leo Nguyen\Desktop\Nguyen_Data\University\DBMS_TNHD\Source\HolyBird\GUI\App.xaml
-1-910031433
+C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\GUI\App.xaml
+10-2095154766
 
-51428314944
-172016266027
-LogIn.xaml;
+141099137202
+17396226090
+Bill.xaml;Customer_Detail.xaml;Customer_OrderRoom.xaml;Customer_SearchRoom.xaml;Employee_CreateAccount.xaml;DashboardEmployee.xaml;DashboardCustomer.xaml;LogIn.xaml;Employee_Payment.xaml;Employee_SearchTransaction.xaml;
 
 False
 

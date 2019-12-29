@@ -12,7 +12,7 @@ namespace DAO
     {
         public static SqlConnection OpenConnection()
         {
-            string sConection = @"Data Source=(local)\SQLEXPRESS;Initial Catalog=HolyBird;Integrated Security=True";
+            string sConection = @"Data Source=(local);Initial Catalog=HolyBird;Integrated Security=True";
             SqlConnection con = new SqlConnection(sConection);
             con.Open();
             return con;
