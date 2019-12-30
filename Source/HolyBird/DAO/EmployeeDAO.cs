@@ -27,9 +27,9 @@ namespace DAO
             {
                 EmployeeDTO employee = new EmployeeDTO();
                 employee.Id = dt.Rows[i]["ID"].ToString();
-                employee.Name = dt.Rows[i]["TenNhanVien"].ToString();
-                employee.Username = dt.Rows[i]["TenDangNhap"].ToString();
-                employee.Password = dt.Rows[i]["MatKhau"].ToString();
+                employee.TenNhanVien = dt.Rows[i]["TenNhanVien"].ToString();
+                employee.TenDangNhap = dt.Rows[i]["TenDangNhap"].ToString();
+                employee.MatKhau = dt.Rows[i]["MatKhau"].ToString();
                 result.Add(employee);
             }
             DataProvider.CloseConnection(con);

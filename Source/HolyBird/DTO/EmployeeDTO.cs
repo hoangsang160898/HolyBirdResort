@@ -9,33 +9,33 @@ namespace DTO
     public class EmployeeDTO
     {
         string id;
-        string name;
-        string username;
-        string password;
+        string tennhanvien;
+        string tendangnhap;
+        string matkhau;
 
         public string Id
         {
             get => id;
             set => id = value;
         }
-        public string Name
+        public string TenNhanVien
         {
-            get => name;
-            set => name = value;
+            get => tennhanvien;
+            set => tennhanvien = value;
         }
-        public string Username
+        public string TenDangNhap
         {
-            get => username;
-            set => username = value;
+            get => tendangnhap;
+            set => tendangnhap = value;
         }
-        public string Password
+        public string MatKhau
         {
-            get => password;
-            set => password = value;
+            get => matkhau;
+            set => matkhau = value;
         }
         public EmployeeDTO()
         {
-            id = name = username = password;
+            id = tennhanvien = tendangnhap = matkhau = "";
         }
     }
 }

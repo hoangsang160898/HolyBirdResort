@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DTO;
+using BUS;
 
 namespace GUI
 {
@@ -23,6 +25,10 @@ namespace GUI
         public Employee_CreateAccount()
         {
             InitializeComponent();
+        }
+        private void addMember(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
