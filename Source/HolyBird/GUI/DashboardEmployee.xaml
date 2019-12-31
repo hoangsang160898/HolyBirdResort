@@ -91,7 +91,7 @@
                 <DropShadowEffect BlurRadius="2" ShadowDepth="1" Color="#FFAEAEAE"/>
             </Grid.Effect>
             <Grid>
-                <Grid Background="#2980b9" RenderTransformOrigin="0.5,0.5" Margin="0,0,0,687" >
+                <Grid Background="#2980b9" RenderTransformOrigin="0.5,0.5" Margin="0,0,0,0" >
                     <Grid.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -100,8 +100,8 @@
                             <TranslateTransform/>
                         </TransformGroup>
                     </Grid.RenderTransform>
-                    <Button x:Name="ButtonOpenMenu" Height="50" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="ButtonOpenMenu_Click" RenderTransformOrigin="0.61,0.165">
-                        <materialDesign:PackIcon Foreground="#FFF" Kind="Menu" Width="25" Height="25"/>
+                    <Button x:Name="ButtonOpenMenu" Panel.ZIndex="2" Height="50" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="ButtonOpenMenu_Click" RenderTransformOrigin="0.61,0.165">
+                        <materialDesign:PackIcon Foreground="#fff" Kind="Menu" Width="25" Height="25"/>
                     </Button>
                     <Button x:Name="ButtonCloseMenu"  Visibility="Collapsed" Height="40" Width="40" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF31577E" Click="ButtonCloseMenu_Click">
                         <materialDesign:PackIcon Foreground="#FFF" Kind="ArrowLeft" Width="25" Height="25"/>

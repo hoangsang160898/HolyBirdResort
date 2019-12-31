@@ -91,7 +91,7 @@
                 <DropShadowEffect BlurRadius="2" ShadowDepth="1" Color="#FFAEAEAE"/>
             </Grid.Effect>
             <Grid>
-                <Grid Background="#2980b9" RenderTransformOrigin="0.5,0.5" Margin="0,0,0,687" >
+                <Grid Background="#2980b9" RenderTransformOrigin="0.5,0.5" Margin="0,0,0,0" >
                     <Grid.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>

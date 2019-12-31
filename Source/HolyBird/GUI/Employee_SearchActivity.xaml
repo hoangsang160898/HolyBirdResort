@@ -1,4 +1,4 @@
-﻿<Page x:Class="GUI.Employee_SearchTransaction"
+﻿<Page x:Class="GUI.Employee_SearchActivity"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -13,24 +13,24 @@
     </Page.Resources>
     <Grid>
         <TextBlock FontSize="26" FontWeight="Bold" HorizontalAlignment="Left" TextAlignment="Center"  VerticalAlignment="Top" Width="926" Margin="0,10,0,0">Quản lí hoạt động</TextBlock>
-        <Button Name="acceptRoom_name" IsEnabled="False" Click="AcceptRoom" Background="#28a745" BorderBrush="#28a745" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="774,50,0,0" Padding="0" Width="127">
+        <Button Name="acceptRoom_name" IsEnabled="False" Click="AcceptRoom" Background="#28a745" BorderBrush="#28a745" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="775,50,0,0" Padding="0" Width="126">
             <StackPanel Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="CheckboxMarked" Width="19" Height="19" />
                 <TextBlock TextAlignment="Right" Width="82">Nhận Phòng</TextBlock>
             </StackPanel>
         </Button>
-        <Button Name="cancelRoom_name" IsEnabled="False" Click="cancelRoom" Background="#dc3545" BorderBrush="#dc3545" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="658,50,0,0" Width="111" Padding="0">
+        <Button Name="cancelRoom_name" IsEnabled="False" Click="cancelRoom" Background="#dc3545" BorderBrush="#dc3545" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="660,50,0,0" Width="110" Padding="0">
             <StackPanel Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="CloseBox" Height="19" Width="19"  />
                 <TextBlock TextAlignment="Right" Width="73">Hủy Phòng</TextBlock>
             </StackPanel>
         </Button>
-        <ListView MouseUp="selectItem" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" x:Name="listTransaction"  Margin="20,94,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="423" Width="881">
+        <ListView MouseUp="selectItem" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" x:Name="listTransaction"  Margin="20,87,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="438" Width="881">
             <ListView.ItemTemplate >
-                <DataTemplate DataType="TransactionDTO">
+                <DataTemplate DataType="ActivityDTO">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Width="865">
                         <TextBox  Text="{Binding MaDoan}" IsReadOnly="True"
-                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="526">
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="526" FontSize="13">
                             <materialDesign:HintAssist.Hint>
                                 <StackPanel
                               Orientation="Horizontal"
@@ -44,11 +44,11 @@
                             </materialDesign:HintAssist.Hint>
                         </TextBox>
                         <TextBox Text="{Binding TrangThai,Converter={StaticResource StatusOfRoomConverter}}" IsReadOnly="True"
-                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="329" Margin="10,0,0,0">
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="329" Margin="10,0,0,0" FontSize="13">
                             <materialDesign:HintAssist.Hint>
                                 <StackPanel
-                              Orientation="Horizontal"
-                              Margin="-2 0 0 0">
+                                    Orientation="Horizontal"
+                                    Margin="-2 0 0 0">
                                     <materialDesign:PackIcon
                                     Kind="Payment" />
                                     <TextBlock><Run Text=" TrạngThái"/></TextBlock>

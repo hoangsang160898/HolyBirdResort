@@ -80,12 +80,12 @@ C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\GUI\obj\Debug\Customer
 C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\GUI\obj\Debug\Customer_SearchRoom.g.cs
 C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\GUI\obj\Debug\Employee_CreateAccount.g.cs
 C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\GUI\obj\Debug\Employee_Payment.g.cs
-C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\GUI\obj\Debug\Employee_SearchTransaction.g.cs
 C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\GUI\obj\Debug\Bill.baml
 C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\GUI\obj\Debug\Customer_Detail.baml
 C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\GUI\obj\Debug\Customer_OrderRoom.baml
 C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\GUI\obj\Debug\Customer_SearchRoom.baml
 C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\GUI\obj\Debug\Employee_CreateAccount.baml
 C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\GUI\obj\Debug\Employee_Payment.baml
-C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\GUI\obj\Debug\Employee_SearchTransaction.baml
 C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\GUI\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\GUI\obj\Debug\Employee_SearchActivity.g.cs
+C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\GUI\obj\Debug\Employee_SearchActivity.baml

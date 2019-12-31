@@ -76,8 +76,8 @@
     <Compile Include="Customer_SearchRoom.xaml.cs">
       <DependentUpon>Customer_SearchRoom.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Employee_SearchTransaction.xaml.cs">
-      <DependentUpon>Employee_SearchTransaction.xaml</DependentUpon>
+    <Compile Include="Employee_SearchActivity.xaml.cs">
+      <DependentUpon>Employee_SearchActivity.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -171,7 +171,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Employee_SearchTransaction.xaml">
+    <Page Include="Employee_SearchActivity.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

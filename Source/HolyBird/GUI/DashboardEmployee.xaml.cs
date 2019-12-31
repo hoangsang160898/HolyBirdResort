@@ -65,7 +65,7 @@ namespace GUI
                     GridPrincipal.Content = new Employee_Payment();
                     break;
                 case 2:
-                    GridPrincipal.Content = new Employee_SearchTransaction();
+                    GridPrincipal.Content = new Employee_SearchActivity();
                     break;
                 default:
                     break;

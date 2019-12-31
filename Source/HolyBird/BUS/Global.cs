@@ -11,6 +11,6 @@ namespace BUS
     public class Global
     {
        public static List<EmployeeDTO> employees;
-        public static List<MemberDTO> members;
+       public static List<RoomDTO> rooms;
     }
 }

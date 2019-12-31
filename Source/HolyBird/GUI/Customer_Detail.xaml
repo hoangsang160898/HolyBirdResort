@@ -5,10 +5,116 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:GUI"
       mc:Ignorable="d" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       d:DesignHeight="537" d:DesignWidth="926"
-      Title="Detail">
+      Title="Detail" Loaded="Window_Loaded_DetailTransaction">
 
     <Grid>
-        <TextBlock>Xem chi tiết đặt phòng</TextBlock>
+        <ListView ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden" x:Name="listRoomOrder"  Margin="15,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="490" Width="886">
+            <ListView.ItemTemplate >
+                <DataTemplate DataType="DetailRoomReservedDTO">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Width="870">
+                        <TextBox  Text="{Binding MaDoan}" IsReadOnly="True"
+                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" FontSize="13">
+                            <materialDesign:HintAssist.Hint>
+                                <StackPanel
+                              Orientation="Horizontal"
+                              Margin="-2 0 0 0">
+                                    <materialDesign:PackIcon
+                                    Kind="Barcode" />
+                                    <TextBlock>
+                                        <Run Text=" Mã đoàn"/>
+                                    </TextBlock>
+                                </StackPanel>
+                            </materialDesign:HintAssist.Hint>
+                        </TextBox>
+                        <TextBox Text="{Binding HoTen}" IsReadOnly="True"
+                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="10,0,0,0" FontSize="13">
+                            <materialDesign:HintAssist.Hint>
+                                <StackPanel
+                              Orientation="Horizontal"
+                              Margin="-2 0 0 0">
+                                    <materialDesign:PackIcon
+                                    Kind="ClipboardUser" />
+                                    <TextBlock><Run Text=" Họ tên"/></TextBlock>
+                                </StackPanel>
+                            </materialDesign:HintAssist.Hint>
+                        </TextBox>
+                        <TextBox Text="{Binding CMND}" IsReadOnly="True"
+                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Margin="10,0,0,0" FontSize="13">
+                            <materialDesign:HintAssist.Hint>
+                                <StackPanel
+                              Orientation="Horizontal"
+                              Margin="-2 0 0 0">
+                                    <materialDesign:PackIcon
+                                    Kind="UserCardDetails" />
+                                    <TextBlock><Run Text=" CMND"/></TextBlock>
+                                </StackPanel>
+                            </materialDesign:HintAssist.Hint>
+                        </TextBox>
+                        <TextBox Text="{Binding MaPhong}" IsReadOnly="True"
+                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="70" Margin="10,0,0,0" FontSize="13">
+                            <materialDesign:HintAssist.Hint>
+                                <StackPanel
+                              Orientation="Horizontal"
+                              Margin="-2 0 0 0">
+                                    <materialDesign:PackIcon
+                                    Kind="Barcode" />
+                                    <TextBlock><Run Text=" Mã phòng"/></TextBlock>
+                                </StackPanel>
+                            </materialDesign:HintAssist.Hint>
+                        </TextBox>
+                        <TextBox Text="{Binding NgayBatDau}" IsReadOnly="True"
+                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="10,0,0,0" FontSize="13">
+                            <materialDesign:HintAssist.Hint>
+                                <StackPanel
+                              Orientation="Horizontal"
+                              Margin="-2 0 0 0">
+                                    <materialDesign:PackIcon
+                                    Kind="CalendarToday" />
+                                    <TextBlock><Run Text=" Ngày bắt đầu"/></TextBlock>
+                                </StackPanel>
+                            </materialDesign:HintAssist.Hint>
+                        </TextBox>
+                        <TextBox Text="{Binding NgayKetThuc}" IsReadOnly="True"
+                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="10,0,0,0" FontSize="13">
+                            <materialDesign:HintAssist.Hint>
+                                <StackPanel
+                              Orientation="Horizontal"
+                              Margin="-2 0 0 0">
+                                    <materialDesign:PackIcon
+                                    Kind="Calendar"  />
+                                    <TextBlock><Run Text=" Ngày kết thúc"/></TextBlock>
+                                </StackPanel>
+                            </materialDesign:HintAssist.Hint>
+                        </TextBox>
+                        <TextBox Text="{Binding DonGia}" IsReadOnly="True"
+                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="10,0,0,0" FontSize="13">
+                            <materialDesign:HintAssist.Hint>
+                                <StackPanel
+                              Orientation="Horizontal"
+                              Margin="-2 0 0 0">
+                                    <materialDesign:PackIcon
+                                    Kind="Coin" />
+                                    <TextBlock><Run Text=" Giá phòng"/></TextBlock>
+                                </StackPanel>
+                            </materialDesign:HintAssist.Hint>
+                        </TextBox>
+                        <TextBox Text="{Binding ThanhTien}" IsReadOnly="True"
+                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="10,0,0,0" FontSize="13">
+                            <materialDesign:HintAssist.Hint>
+                                <StackPanel
+                              Orientation="Horizontal"
+                              Margin="-2 0 0 0">
+                                    <materialDesign:PackIcon
+                                    Kind="Payment" />
+                                    <TextBlock><Run Text=" Thành tiền"/></TextBlock>
+                                </StackPanel>
+                            </materialDesign:HintAssist.Hint>
+                        </TextBox>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>
