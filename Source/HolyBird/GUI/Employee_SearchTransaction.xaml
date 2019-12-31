@@ -6,9 +6,58 @@
       xmlns:local="clr-namespace:GUI"
       mc:Ignorable="d" 
       d:DesignHeight="537" d:DesignWidth="926"
-      Title="Search">
-
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      Title="Search" Loaded="Window_Loaded_Transactions">
+    <Page.Resources>
+        <local:StatusOfRoomConverter x:Key="StatusOfRoomConverter"/>
+    </Page.Resources>
     <Grid>
-        <TextBlock>Tra cứu</TextBlock>
+        <TextBlock FontSize="26" FontWeight="Bold" HorizontalAlignment="Left" TextAlignment="Center"  VerticalAlignment="Top" Width="926" Margin="0,10,0,0">Quản lí hoạt động</TextBlock>
+        <Button Name="acceptRoom_name" IsEnabled="False" Click="AcceptRoom" Background="#28a745" BorderBrush="#28a745" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="774,50,0,0" Padding="0" Width="127">
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="CheckboxMarked" Width="19" Height="19" />
+                <TextBlock TextAlignment="Right" Width="82">Nhận Phòng</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Name="cancelRoom_name" IsEnabled="False" Click="cancelRoom" Background="#dc3545" BorderBrush="#dc3545" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="658,50,0,0" Width="111" Padding="0">
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="CloseBox" Height="19" Width="19"  />
+                <TextBlock TextAlignment="Right" Width="73">Hủy Phòng</TextBlock>
+            </StackPanel>
+        </Button>
+        <ListView MouseUp="selectItem" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" x:Name="listTransaction"  Margin="20,94,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="423" Width="881">
+            <ListView.ItemTemplate >
+                <DataTemplate DataType="TransactionDTO">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Width="865">
+                        <TextBox  Text="{Binding MaDoan}" IsReadOnly="True"
+                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="526">
+                            <materialDesign:HintAssist.Hint>
+                                <StackPanel
+                              Orientation="Horizontal"
+                              Margin="-2 0 0 0">
+                                    <materialDesign:PackIcon
+                                    Kind="ClipboardUser" />
+                                    <TextBlock>
+                                        <Run Text=" Mã đoàn"/>
+                                    </TextBlock>
+                                </StackPanel>
+                            </materialDesign:HintAssist.Hint>
+                        </TextBox>
+                        <TextBox Text="{Binding TrangThai,Converter={StaticResource StatusOfRoomConverter}}" IsReadOnly="True"
+                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="329" Margin="10,0,0,0">
+                            <materialDesign:HintAssist.Hint>
+                                <StackPanel
+                              Orientation="Horizontal"
+                              Margin="-2 0 0 0">
+                                    <materialDesign:PackIcon
+                                    Kind="Payment" />
+                                    <TextBlock><Run Text=" TrạngThái"/></TextBlock>
+                                </StackPanel>
+                            </materialDesign:HintAssist.Hint>
+                        </TextBox>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>

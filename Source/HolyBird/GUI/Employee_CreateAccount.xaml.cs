@@ -22,11 +22,28 @@ namespace GUI
     /// </summary>
     public partial class Employee_CreateAccount : Page
     {
+        List<MemberDTO> tempMembers = new List<MemberDTO>();
+
         public Employee_CreateAccount()
         {
             InitializeComponent();
         }
         private void addMember(object sender, RoutedEventArgs e)
+        {
+            tempMembers.Add(new MemberDTO());
+            listMember.ItemsSource = tempMembers;
+            listMember.Items.Refresh();
+        }
+        private void removeMember(object sender, RoutedEventArgs e)
+        {
+            if (listMember.SelectedItems.Count > 0)
+            {
+                MemberDTO tmp = (MemberDTO)listMember.SelectedItems[0];
+                tempMembers.Remove(tmp);
+                listMember.Items.Refresh();
+            }
+        }
+        private void saveInformation(object sender, RoutedEventArgs e)
         {
 
         }

@@ -88,3 +88,4 @@ C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\GUI\obj\Debug\Customer
 C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\GUI\obj\Debug\Employee_CreateAccount.baml
 C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\GUI\obj\Debug\Employee_Payment.baml
 C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\GUI\obj\Debug\Employee_SearchTransaction.baml
+C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\GUI\obj\Debug\GeneratedInternalTypeHelper.g.cs
