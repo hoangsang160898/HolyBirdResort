@@ -113,6 +113,10 @@
             </ListView.ItemTemplate>
         </ListView>
         <TextBox IsReadOnly="True"
+                 Text="312312312"
+                 Foreground="#dc3545"
+                   materialDesign:HintAssist.Foreground="#dc3545"
+  materialDesign:TextFieldAssist.UnderlineBrush="#dc3545"
             Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="160" FontSize="18" Margin="0,91,25,0" RenderTransformOrigin="0.488,0.47" FontWeight="Bold">
             <materialDesign:HintAssist.Hint>
                 <StackPanel
