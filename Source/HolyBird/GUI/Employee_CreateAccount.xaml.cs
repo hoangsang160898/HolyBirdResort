@@ -22,7 +22,7 @@ namespace GUI
     /// </summary>
     public partial class Employee_CreateAccount : Page
     {
-        List<MemberDTO> tempMembers = new List<MemberDTO>();
+        List<CustomerDTO> tempMembers = new List<CustomerDTO>();
 
         public Employee_CreateAccount()
         {
@@ -30,7 +30,7 @@ namespace GUI
         }
         private void addMember(object sender, RoutedEventArgs e)
         {
-            tempMembers.Add(new MemberDTO());
+            tempMembers.Add(new CustomerDTO());
             listMember.ItemsSource = tempMembers;
             listMember.Items.Refresh();
         }
@@ -38,7 +38,7 @@ namespace GUI
         {
             if (listMember.SelectedItems.Count > 0)
             {
-                MemberDTO tmp = (MemberDTO)listMember.SelectedItems[0];
+                CustomerDTO tmp = (CustomerDTO)listMember.SelectedItems[0];
                 tempMembers.Remove(tmp);
                 listMember.Items.Refresh();
             }

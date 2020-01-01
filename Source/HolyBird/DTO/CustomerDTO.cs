@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class MemberDTO
+    public class CustomerDTO
     {
         string id;
         string cmnd;
@@ -26,11 +26,11 @@ namespace DTO
             get => hoten;
             set => hoten = value;
         }
-        public MemberDTO()
+        public CustomerDTO()
         {
             id = hoten = cmnd = "";
         }
-        public MemberDTO(string id, string hoten, string cmnd)
+        public CustomerDTO(string id, string hoten, string cmnd)
         {
             this.id = id;
             this.hoten = hoten;

@@ -19,5 +19,12 @@ namespace BUS
             }
             return result;
         }
+        public static EmployeeDTO LogIn(string username, string password)
+        {
+            Global.employee = EmployeeDAO.LogIn(username, password);
+            if (Global.employee == null)
+                return null;
+            return Global.employee;
+        }
     }
 }

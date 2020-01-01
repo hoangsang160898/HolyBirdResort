@@ -35,5 +35,23 @@ namespace DAO
             DataProvider.CloseConnection(con);
             return result;
         }
+
+        public static EmployeeDTO LogIn(string username, string password)
+        {
+            string sTruyVan = @"select * from NhanVien where TenDangNhap= '" + username + @"' and MatKhau = '" + password + "'";
+            con = DataProvider.OpenConnection();
+            DataTable dt = DataProvider.GetDataTable(sTruyVan, con);
+            if (dt.Rows.Count == 0)
+            {
+                return null;
+            }
+            EmployeeDTO employee = new EmployeeDTO();
+
+            employee.Id = dt.Rows[0]["ID"].ToString();
+            employee.TenNhanVien = dt.Rows[0]["TenNhanVien"].ToString();
+
+            DataProvider.CloseConnection(con);
+            return employee;
+        }
     }
 }

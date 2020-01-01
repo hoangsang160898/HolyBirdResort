@@ -46,7 +46,7 @@
     <Compile Include="DetailRoomReservedDTO.cs" />
     <Compile Include="DetailTransactionDTO.cs" />
     <Compile Include="DamagesDTO.cs" />
-    <Compile Include="MemberDTO.cs" />
+    <Compile Include="CustomerDTO.cs" />
     <Compile Include="EmployeeDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoomDTO.cs" />

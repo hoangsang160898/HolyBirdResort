@@ -12,5 +12,7 @@ namespace BUS
     {
        public static List<EmployeeDTO> employees;
        public static List<RoomDTO> rooms;
+       public static EmployeeDTO employee;
+       public static AccountDTO account;
     }
 }

@@ -22,7 +22,7 @@ namespace GUI
     public partial class Customer_OrderRoom : Page
     {
         List<RoomDTO> tempRoomOrdered = new List<RoomDTO>();
-        List<MemberDTO> tempMembers = new List<MemberDTO>();
+        List<CustomerDTO> tempMembers = new List<CustomerDTO>();
         List<DetailRoomReservedDTO> tempRoomReserved = new List<DetailRoomReservedDTO>();
         public Customer_OrderRoom()
         {
@@ -30,10 +30,10 @@ namespace GUI
             tempRoomOrdered.Add(new RoomDTO { HangPhong = "Trung", Id = "1123", SoTang = "1", HinhThuc = "2 giường đôi" });
             tempRoomOrdered.Add(new RoomDTO { HangPhong = "Cao cấp", Id = "12223", SoTang = "3", HinhThuc = "2 giường đơn" });
             tempRoomOrdered.Add(new RoomDTO { HangPhong = "Cao cấp", Id = "12223", SoTang = "3", HinhThuc = "2 giường đơn" });
-            tempMembers.Add(new MemberDTO { HoTen = "Truong Quang", Id = "sds2" });
-            tempMembers.Add(new MemberDTO { HoTen = "Huynh Lam Phu Si", Id = "sd22s2" });
-            tempMembers.Add(new MemberDTO { HoTen = "Le Hoang Sang", Id = "sds2" });
-            tempMembers.Add(new MemberDTO { HoTen = "Nguyen Thi Thu Quyen", Id = "sds2" });
+            tempMembers.Add(new CustomerDTO { HoTen = "Truong Quang", Id = "sds2" });
+            tempMembers.Add(new CustomerDTO { HoTen = "Huynh Lam Phu Si", Id = "sd22s2" });
+            tempMembers.Add(new CustomerDTO { HoTen = "Le Hoang Sang", Id = "sds2" });
+            tempMembers.Add(new CustomerDTO { HoTen = "Nguyen Thi Thu Quyen", Id = "sds2" });
             tempRoomReserved.Add(new DetailRoomReservedDTO { HoTen = "Truong Quang", MaPhong = "31231" });
             tempRoomReserved.Add(new DetailRoomReservedDTO { HoTen = "Truong Quang", MaPhong = "31231" });
             tempRoomReserved.Add(new DetailRoomReservedDTO { HoTen = "Truong Quang", MaPhong = "31231" });

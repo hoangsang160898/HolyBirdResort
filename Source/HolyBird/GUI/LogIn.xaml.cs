@@ -35,22 +35,23 @@ namespace GUI
 
         private void login_submit__click(object sender, RoutedEventArgs e)
         {
+            string username = login_username__name.Text;
+            string password = login_password__name.Password;
             var window = new Window();
             window.Close();
-            switch (login_username__name.Text)
+
+            if (EmployeeBUS.LogIn(username, password) != null)
             {
-                case "c":
-                    window = new DashboardCustomer();
-                    break;
-                case "e":
-                    window = new DashboardEmployee();
-                    break;
-                default:
-                    window = new LogIn();
-                    break;
+                window = new DashboardEmployee();
+                window.Show();
+                this.Close();
             }
-            window.Show();
-            this.Close();
+            if (AccountBUS.LogIn(username, password) != null)
+            {
+                window = new DashboardCustomer();
+                window.Show();
+                this.Close();
+            }
         }
     }
 }
