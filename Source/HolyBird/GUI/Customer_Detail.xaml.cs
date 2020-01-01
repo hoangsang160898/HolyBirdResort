@@ -28,10 +28,6 @@ namespace GUI
             tempRoomReserved.Add(new DetailRoomReservedDTO { MaDoan = "1231223", HoTen = "b", CMND = "3123123", MaPhong = "das1", NgayBatDau = "1/1/2020", NgayKetThuc = "10/1/2020", DonGia = "750000", ThanhTien = "7500000" });
             tempRoomReserved.Add(new DetailRoomReservedDTO { MaDoan = "1231123", HoTen = "c", CMND = "3123123", MaPhong = "das1", NgayBatDau = "1/1/2020", NgayKetThuc = "10/1/2020", DonGia = "750000", ThanhTien = "7500000" });
             tempRoomReserved.Add(new DetailRoomReservedDTO { MaDoan = "123d2123", HoTen = "d", CMND = "3123123", MaPhong = "das1", NgayBatDau = "1/1/2020", NgayKetThuc = "10/1/2020", DonGia = "750000", ThanhTien = "7500000" });
-            tempRoomReserved.Add(new DetailRoomReservedDTO { MaDoan = "123123", HoTen = "a", CMND = "3123123", MaPhong = "das1", NgayBatDau = "1/1/2020", NgayKetThuc = "10/1/2020", DonGia = "750000", ThanhTien = "7500000" });
-            tempRoomReserved.Add(new DetailRoomReservedDTO { MaDoan = "1231223", HoTen = "b", CMND = "3123123", MaPhong = "das1", NgayBatDau = "1/1/2020", NgayKetThuc = "10/1/2020", DonGia = "750000", ThanhTien = "7500000" });
-            tempRoomReserved.Add(new DetailRoomReservedDTO { MaDoan = "1231123", HoTen = "c", CMND = "3123123", MaPhong = "das1", NgayBatDau = "1/1/2020", NgayKetThuc = "10/1/2020", DonGia = "750000", ThanhTien = "7500000" });
-            tempRoomReserved.Add(new DetailRoomReservedDTO { MaDoan = "123d2123", HoTen = "d", CMND = "3123123", MaPhong = "das1", NgayBatDau = "1/1/2020", NgayKetThuc = "10/1/2020", DonGia = "750000", ThanhTien = "7500000" });
             InitializeComponent();
         }
 

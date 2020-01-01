@@ -10,13 +10,13 @@
       Title="OrderRoom" Loaded="Window_Loaded_RoomOrdered">
 
     <Grid>
-        <Button Click="orderRoom" Background="#28a745" BorderBrush="#28a745" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,25,0">Đặt phòng</Button>
-        <ListView ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden" x:Name="listRoomOrdered"  Margin="20,183,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="326" Width="881">
+        <Button Click="reserveRoom" Background="#28a745" BorderBrush="#28a745" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,25,0">Đặt phòng</Button>
+        <ListView MouseUp="selectItemRoom" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden" x:Name="listRoomOrdered"  Margin="20,70,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="161" Width="881">
             <ListView.ItemTemplate >
                 <DataTemplate DataType="RoomDTO">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Width="865">
-                        <TextBox  Text="{Binding Id}"
-                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="126" FontSize="13">
+                        <TextBox  Text="{Binding Id}" IsReadOnly="True"
+                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210" FontSize="13">
                             <materialDesign:HintAssist.Hint>
                                 <StackPanel
                               Orientation="Horizontal"
@@ -29,8 +29,8 @@
                                 </StackPanel>
                             </materialDesign:HintAssist.Hint>
                         </TextBox>
-                        <TextBox Text="{Binding HangPhong}"
-                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="129" Margin="10,0,0,0" FontSize="13">
+                        <TextBox Text="{Binding HangPhong}" IsReadOnly="True"
+                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210" Margin="10,0,0,0" FontSize="13">
                             <materialDesign:HintAssist.Hint>
                                 <StackPanel
                               Orientation="Horizontal"
@@ -38,6 +38,30 @@
                                     <materialDesign:PackIcon
                                     Kind="Payment" />
                                     <TextBlock><Run Text=" Hạng phòng"/></TextBlock>
+                                </StackPanel>
+                            </materialDesign:HintAssist.Hint>
+                        </TextBox>
+                        <TextBox Text="{Binding SoTang}" IsReadOnly="True"
+                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210" Margin="10,0,0,0" FontSize="13">
+                            <materialDesign:HintAssist.Hint>
+                                <StackPanel
+                              Orientation="Horizontal"
+                              Margin="-2 0 0 0">
+                                    <materialDesign:PackIcon
+                                    Kind="Payment" />
+                                    <TextBlock><Run Text=" Tầng"/></TextBlock>
+                                </StackPanel>
+                            </materialDesign:HintAssist.Hint>
+                        </TextBox>
+                        <TextBox Text="{Binding HinhThuc}" IsReadOnly="True"
+                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="220" Margin="10,0,0,0" FontSize="13">
+                            <materialDesign:HintAssist.Hint>
+                                <StackPanel
+                              Orientation="Horizontal"
+                              Margin="-2 0 0 0">
+                                    <materialDesign:PackIcon
+                                    Kind="Payment" />
+                                    <TextBlock><Run Text=" Hình thức"/></TextBlock>
                                 </StackPanel>
                             </materialDesign:HintAssist.Hint>
                         </TextBox>
@@ -50,8 +74,47 @@
             materialDesign:HintAssist.Hint="Họ tên"
             IsEditable="False"
             DisplayMemberPath="HoTen"
-            Style="{StaticResource MaterialDesignFloatingHintComboBox}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,138,117,0" Width="119">
+            Style="{StaticResource MaterialDesignFloatingHintComboBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="26,242,0,0" Width="160">
         </ComboBox>
-        <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,146,25,0">Chọn</Button>
+        <Button Click="addPersonToRoom" BorderBrush="#ffc107" Background="#ffc107" Foreground="#212529" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="194,250,0,0">
+            <materialDesign:PackIcon Kind="ArrowDropDownCircle"/>
+        </Button>
+        <Button Click="removePerSonInRoom" BorderBrush="#dc3545" Background="#dc3545" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="247,250,0,0" Padding="0" Width="32">
+            <materialDesign:PackIcon Kind="RemoveCircle"/>
+        </Button>
+        <ListView MouseUp="selectItemRoomReserved" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden" x:Name="listRoomReserved"  Margin="20,298,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="219" Width="881">
+            <ListView.ItemTemplate >
+                <DataTemplate DataType="DetailRoomReservedDTO">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Width="865">
+                        <TextBox  Text="{Binding HoTen}" IsReadOnly="True"
+                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="430" FontSize="13">
+                            <materialDesign:HintAssist.Hint>
+                                <StackPanel
+                              Orientation="Horizontal"
+                              Margin="-2 0 0 0">
+                                    <materialDesign:PackIcon
+                                    Kind="ClipboardUser" />
+                                    <TextBlock>
+                                        <Run Text=" Họ tên"/>
+                                    </TextBlock>
+                                </StackPanel>
+                            </materialDesign:HintAssist.Hint>
+                        </TextBox>
+                        <TextBox Text="{Binding MaPhong}" IsReadOnly="True"
+                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="430" Margin="10,0,0,0" FontSize="13">
+                            <materialDesign:HintAssist.Hint>
+                                <StackPanel
+                              Orientation="Horizontal"
+                              Margin="-2 0 0 0">
+                                    <materialDesign:PackIcon
+                                    Kind="Payment" />
+                                    <TextBlock><Run Text=" Mã phòng"/></TextBlock>
+                                </StackPanel>
+                            </materialDesign:HintAssist.Hint>
+                        </TextBox>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>
