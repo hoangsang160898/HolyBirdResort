@@ -10,9 +10,11 @@ namespace BUS
 {
     public class Global
     {
-       public static List<EmployeeDTO> employees;
-       public static List<RoomDTO> rooms;
-       public static EmployeeDTO employee;
-       public static AccountDTO account;
+        public static List<EmployeeDTO> employees;
+        public static List<RoomDTO> rooms;
+        public static EmployeeDTO employee;
+        public static AccountDTO account;
+        public static List<RoomDTO> roomsEmpty;
+        public static List<RoomDTO> roomsChoosen = new List<RoomDTO>();
     }
 }

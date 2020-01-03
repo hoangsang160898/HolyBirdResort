@@ -53,5 +53,40 @@ namespace DAO
             DataProvider.CloseConnection(con);
             return employee;
         }
+
+        public static void InsertTransaction(string madoan, List<CustomerInformationDTO> customers, string ngaybatdau, string ngayketthuc)
+        {
+            DataTable danhsachkhachhang = new DataTable();
+            danhsachkhachhang.Columns.Add("Name",typeof(string));
+            danhsachkhachhang.Columns.Add("IdCard", typeof(string));
+
+            for (int i = 0; i < customers.Count; i++)
+            {
+                DataRow row = danhsachkhachhang.NewRow();
+                row["Name"] = customers[i].HoTen;
+                row["IdCard"] = customers[i].CMND;
+                danhsachkhachhang.Rows.Add(row);
+            }
+
+            con = DataProvider.OpenConnection();
+            SqlCommand cmd = new SqlCommand("Sp_DangKyGiaoDich", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@MaDoan", madoan);
+            cmd.Parameters.AddWithValue("@DanhSachKhachHang", danhsachkhachhang);
+            cmd.Parameters.AddWithValue("@NgayBatDau", ngaybatdau);
+            cmd.Parameters.AddWithValue("@NgayKetThuc", ngayketthuc);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                DataProvider.CloseConnection(con);
+            }
+            catch
+            {
+                DataProvider.CloseConnection(con);
+            }
+
+        }
     }
 }

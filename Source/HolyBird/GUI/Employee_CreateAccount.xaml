@@ -10,13 +10,28 @@
       Title="CreateAccount">
 
     <Grid HorizontalAlignment="Left" Width="926" Height="536">
+        <TextBox 
+            Name="MaDoan_name"
+             materialDesign:HintAssist.Foreground="Green"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="122" FontSize="13" Margin="360,10,0,0">
+            <materialDesign:HintAssist.Hint>
+                <StackPanel
+                        Orientation="Horizontal"
+                        Margin="-2 0 0 0">
+                    <materialDesign:PackIcon Kind="Barcode" />
+                    <TextBlock><Run Text=" Mã đoàn"/></TextBlock>
+                </StackPanel>
+            </materialDesign:HintAssist.Hint>
+        </TextBox>
         <DatePicker
+            Name="NgayBatDau_name"
             materialDesign:HintAssist.Hint="Ngày bắt đầu"
             Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
             FontSize="13"
             HorizontalAlignment="Left"
             VerticalAlignment="Top" Margin="517,10,0,0" Width="176"/>
         <DatePicker
+            Name="NgayKetThuc_name"
             materialDesign:HintAssist.Hint="Ngày kết thúc"
             Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
             FontSize="13"
@@ -27,6 +42,7 @@
         <StackPanel  Orientation="Horizontal" x:Name="leader" HorizontalAlignment="Left" VerticalAlignment="Top" Width="881" Margin="21,79,0,0">
             <materialDesign:PackIcon Kind="Stars" Height="27" Width="27" Margin="0,10,10,0" FontSize="13" Foreground="#F57F17" />
             <TextBox 
+                Name="HoTenLead_name"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" FontSize="13">
                 <materialDesign:HintAssist.Hint>
                     <StackPanel
@@ -38,6 +54,7 @@
                 </materialDesign:HintAssist.Hint>
             </TextBox>
             <TextBox
+                x:Name="CMNDLead_name"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="334" Margin="10,0,0,0" FontSize="13">
                 <materialDesign:HintAssist.Hint>
                     <StackPanel
@@ -55,9 +72,9 @@
         <Button Click="removeMember" HorizontalAlignment="Left" VerticalAlignment="Top" Height="32" Width="32" Background="#dc3545" BorderBrush="#dc3545" Margin="824,146,0,0" Padding="0,0,0,0" >
             <materialDesign:PackIcon Kind="AccountRemove" Foreground="#fff" />
         </Button>
-        <ListView ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden" x:Name="listMember"  Margin="20,183,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="326" Width="881">
+        <ListView ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden" x:Name="listMember_name"  Margin="20,183,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="326" Width="881">
             <ListView.ItemTemplate >
-                <DataTemplate DataType="MemberDTO">
+                <DataTemplate DataType="CustomerInformationDTO">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Width="865">
                         <TextBox  Text="{Binding HoTen}"
                       Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="526" FontSize="13">

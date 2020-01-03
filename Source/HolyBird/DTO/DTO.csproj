@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="AccountDTO.cs" />
     <Compile Include="BillChildDTO.cs" />
+    <Compile Include="CustomerInformationDTO.cs" />
     <Compile Include="DetailRoomReservedDTO.cs" />
     <Compile Include="DetailTransactionDTO.cs" />
     <Compile Include="DamagesDTO.cs" />

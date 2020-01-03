@@ -11,31 +11,25 @@
 
     <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Height="537" Width="926">
         <ComboBox
+            Name="HangPhong_name"
             materialDesign:HintAssist.Hint="Hạng"
             IsEditable="False"
             Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" FontSize="13">
-            <ComboBoxItem
-                IsSelected="True">
-                Tất cả
-            </ComboBoxItem>
             <ComboBoxItem>
                 Thường
             </ComboBoxItem>
             <ComboBoxItem>
-                Trung
+                Sang
             </ComboBoxItem>
             <ComboBoxItem>
-                Cao cấp
+                VIP
             </ComboBoxItem>
         </ComboBox>
         <ComboBox
+            Name="Tang_name"
             materialDesign:HintAssist.Hint="Tầng"
             IsEditable="False"
             Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="170,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" FontSize="13">
-            <ComboBoxItem
-                IsSelected="True">
-                Tất cả
-            </ComboBoxItem>
             <ComboBoxItem>
                 1
             </ComboBoxItem>
@@ -47,13 +41,10 @@
             </ComboBoxItem>
         </ComboBox>
         <ComboBox
+            Name="HinhThuc_name"
             materialDesign:HintAssist.Hint="Hình thức"
             IsEditable="False"
             Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="320,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" FontSize="13">
-            <ComboBoxItem
-                IsSelected="True">
-               Tất cả
-            </ComboBoxItem>
             <ComboBoxItem>
                 1 giường đơn
             </ComboBoxItem>
@@ -68,12 +59,14 @@
             </ComboBoxItem>
         </ComboBox>
         <DatePicker
+            IsEnabled="False"
             materialDesign:HintAssist.Hint="Ngày bắt đầu"
             Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
             FontSize="13"
             HorizontalAlignment="Left"
             VerticalAlignment="Top" Margin="470,23,0,0" Width="176"/>
         <DatePicker
+            IsEnabled="False"
             materialDesign:HintAssist.Hint="Ngày kết thúc"
             Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
             FontSize="13"
@@ -158,7 +151,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
+        <TextBlock x:Name="noRoomEmpty" Visibility="Collapsed" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Margin="402,100,0,0">Không có phòng cần tìm</TextBlock>
         <ListView MouseUp="selectItemRemoveRoom" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden" x:Name="listRoomChoosen"  Margin="20,347,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="163" Width="881">
             <ListView.ItemTemplate >
                 <DataTemplate DataType="RoomDTO">
@@ -229,6 +222,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
+        <TextBlock x:Name="noRoomChoosen" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="23" Margin="389,0,389,143">Không có phòng được chọn</TextBlock>
     </Grid>
 </Page>

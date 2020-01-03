@@ -8,7 +8,8 @@
         mc:Ignorable="d"
          Icon="images/g17176-512.png"
                 ResizeMode="CanMinimize"
-        Title="HolyBird - Khách hàng" Height="576" Width="992"  WindowStartupLocation="CenterScreen">
+        Title="HolyBird - Khách hàng" Height="576" Width="992"  WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded_Customer">
     <Window.Resources>
         <Storyboard x:Key="OpenMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">

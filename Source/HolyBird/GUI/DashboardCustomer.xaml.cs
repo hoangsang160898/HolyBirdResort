@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BUS;
+using DTO;
 
 namespace GUI
 {
@@ -77,6 +79,11 @@ namespace GUI
         {
             GridCursor.Margin = new Thickness(0, (50 + (50 * index)), 0, 0);
 
+        }
+
+        private void Window_Loaded_Customer(object sender, RoutedEventArgs e)
+        {
+            Global.roomsEmpty = RoomBUS.LoadRoomEmptyAll();
         }
     }
 }
