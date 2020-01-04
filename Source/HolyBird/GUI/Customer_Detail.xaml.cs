@@ -21,19 +21,23 @@ namespace GUI
     /// </summary>
     public partial class Customer_Detail : Page
     {
-        List<DetailRoomReservedDTO> tempRoomReserved = new List<DetailRoomReservedDTO>();
         public Customer_Detail()
         {
-            tempRoomReserved.Add(new DetailRoomReservedDTO { MaDoan = "123123", HoTen = "Nguyen Thi Thu Quyen", CMND = "3123123", MaPhong = "das1", NgayBatDau = "1/1/2020", NgayKetThuc = "10/1/2020", DonGia = "750000", ThanhTien = "7500000" });
-            tempRoomReserved.Add(new DetailRoomReservedDTO { MaDoan = "1231223", HoTen = "b", CMND = "3123123", MaPhong = "das1", NgayBatDau = "1/1/2020", NgayKetThuc = "10/1/2020", DonGia = "750000", ThanhTien = "7500000" });
-            tempRoomReserved.Add(new DetailRoomReservedDTO { MaDoan = "1231123", HoTen = "c", CMND = "3123123", MaPhong = "das1", NgayBatDau = "1/1/2020", NgayKetThuc = "10/1/2020", DonGia = "750000", ThanhTien = "7500000" });
-            tempRoomReserved.Add(new DetailRoomReservedDTO { MaDoan = "123d2123", HoTen = "d", CMND = "3123123", MaPhong = "das1", NgayBatDau = "1/1/2020", NgayKetThuc = "10/1/2020", DonGia = "750000", ThanhTien = "7500000" });
             InitializeComponent();
         }
 
         private void Window_Loaded_DetailTransaction(object sender, RoutedEventArgs e)
         {
-            listRoomOrder.ItemsSource = tempRoomReserved;
+            List<DetailRoomReservedDTO> listDetail = DetailRoomReservedBUS.LoadDetailRoomReserved(Global.account.Id_GiaoDich);
+            if (listDetail == null)
+            {
+                noDetail.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                noDetail.Visibility = Visibility.Collapsed;
+                listRoomOrder.ItemsSource = listDetail;
+            }
         }
     }
 }

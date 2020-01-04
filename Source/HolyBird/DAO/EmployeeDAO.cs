@@ -69,7 +69,7 @@ namespace DAO
             }
 
             con = DataProvider.OpenConnection();
-            SqlCommand cmd = new SqlCommand("Sp_DangKyGiaoDich", con);
+            SqlCommand cmd = new SqlCommand("usp_DangKyGiaoDich", con);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@MaDoan", madoan);
@@ -82,11 +82,11 @@ namespace DAO
                 cmd.ExecuteNonQuery();
                 DataProvider.CloseConnection(con);
             }
-            catch
+            catch (Exception e)
             {
                 DataProvider.CloseConnection(con);
             }
-
+            DataProvider.CloseConnection(con);
         }
     }
 }

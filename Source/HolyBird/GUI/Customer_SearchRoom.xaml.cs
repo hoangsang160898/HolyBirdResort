@@ -112,6 +112,22 @@ namespace GUI
         {
             listSearchRoom.ItemsSource = Global.roomsEmpty;
             listRoomChoosen.ItemsSource = Global.roomsChoosen;
+            if (Global.roomsEmpty.Count == 0)
+            {
+                noRoomEmpty.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                noRoomEmpty.Visibility = Visibility.Collapsed;
+            }
+            if (Global.roomsChoosen.Count == 0)
+            {
+                noRoomChoosen.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                noRoomChoosen.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void selectItemRemoveRoom(object sender, MouseButtonEventArgs e)

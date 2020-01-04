@@ -10,6 +10,7 @@
       Title="CreateAccount">
 
     <Grid HorizontalAlignment="Left" Width="926" Height="536">
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="58,122,0,0" Foreground="#dc3545" FontWeight="Bold">Lưu ý: Họ và tên là mật khẩu, CMND là tên đăng nhập</TextBlock>
         <TextBox 
             Name="MaDoan_name"
              materialDesign:HintAssist.Foreground="Green"
@@ -38,7 +39,7 @@
             VerticalAlignment="Top"
             HorizontalAlignment="Left" Margin="725,10,0,0" Width="176"/>
         <Button Click="saveInformation" Background="#007bff" BorderBrush="#007bff" Margin="20,13,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Height="32">Lưu</Button>
-
+        <Button Click="clearInformation" Background="#ffc107" BorderBrush="#ffc107" Margin="185,13,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="87" Height="32" Foreground="#212529">Clear all</Button>
         <StackPanel  Orientation="Horizontal" x:Name="leader" HorizontalAlignment="Left" VerticalAlignment="Top" Width="881" Margin="21,79,0,0">
             <materialDesign:PackIcon Kind="Stars" Height="27" Width="27" Margin="0,10,10,0" FontSize="13" Foreground="#F57F17" />
             <TextBox 
@@ -106,5 +107,21 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <materialDesign:TransitioningContent Name="alert_success" Visibility="Collapsed" OpeningEffect="{materialDesign:TransitionEffect SlideInFromRight, Duration=0:0:0.4}">
+            <Border Background="#f6ffed" CornerRadius="4" BorderBrush=" #b7eb8f" BorderThickness="1" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,25,0">
+                <StackPanel  Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Height="40" Width="210">
+                    <materialDesign:PackIcon Foreground="#52c41a" Kind="CommentTick" Height="30" Width="24" Margin="18,5,7,5" />
+                    <TextBlock FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Center" Height="18" Margin="0,10,0,12" Foreground="#D8000000">Tạo tài khoản thành công</TextBlock>
+                </StackPanel>
+            </Border>
+        </materialDesign:TransitioningContent>
+        <materialDesign:TransitioningContent Name="alert_error" Visibility="Collapsed" OpeningEffect="{materialDesign:TransitionEffect SlideInFromRight, Duration=0:0:0.4}">
+            <Border Background="#fff1f0" CornerRadius="4" BorderBrush="#ffa39e" BorderThickness="1" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,26,0">
+                <StackPanel  Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Height="40" Width="187">
+                    <materialDesign:PackIcon Foreground="#f5222d" Kind="CommentRemove" Height="30" Width="24" Margin="16,5,7,5" />
+                    <TextBlock FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Center" Height="18" Margin="0,10,0,12" Foreground="#D8000000">Tạo tài khoản thất bại</TextBlock>
+                </StackPanel>
+            </Border>
+        </materialDesign:TransitioningContent>
     </Grid>
 </Page>

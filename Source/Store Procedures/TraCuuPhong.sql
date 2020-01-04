@@ -25,8 +25,10 @@ begin tran
 							@HinhThuc nvarchar(20), 
 							@HangPhong nvarchar(20)'
 	
-	execute sp_Executesql @SqlQuery, @ParamDefinition,@SoTang,@TrangThai,@HinhThuc,@HangPhong
 
+	execute sp_Executesql @SqlQuery, @ParamDefinition,@SoTang,@TrangThai,@HinhThuc,@HangPhong
+		Waitfor delay '00:00:05'
+	execute sp_Executesql @SqlQuery, @ParamDefinition,@SoTang,@TrangThai,@HinhThuc,@HangPhong
 	if(@@ERROR <> 0)
 	begin
 		rollback tran
@@ -38,4 +40,3 @@ go
 
 exec usp_TraCuuPhong null,N'Trống',null,null
 
-select * from Phong

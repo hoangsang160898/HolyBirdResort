@@ -118,6 +118,10 @@ BEGIN
 				END
 			END
 		END
+		waitfor delay '00:00:05'
 	COMMIT TRAN
 END
 GO
+
+exec sp_TraPhong 1
+exec sp_TraPhong 2

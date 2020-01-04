@@ -27,7 +27,7 @@ namespace BUS
             return Global.employee;
         }
         public static void InsertTransaction(string madoan, List<CustomerInformationDTO> customers, string ngaybatdau, string ngayketthuc) {
-             EmployeeBUS.InsertTransaction(madoan, customers, ngaybatdau, ngayketthuc);
+             EmployeeDAO.InsertTransaction(madoan, customers, ngaybatdau, ngayketthuc);
         }
     }
 }

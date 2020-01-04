@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using DTO;
 using BUS;
 using System.Collections;
+using System.Windows.Threading;
 
 namespace GUI
 {
@@ -24,10 +25,21 @@ namespace GUI
     public partial class Employee_CreateAccount : Page
     {
         List<CustomerInformationDTO> tempMembers = new List<CustomerInformationDTO>();
-
+        private DispatcherTimer dispatcherTimer;
         public Employee_CreateAccount()
         {
+            //Thời gian báo lỗi khi nhập user hoặc pass
+            dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 2);
             InitializeComponent();
+        }
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+           alert_error.Visibility = Visibility.Collapsed;
+           alert_success.Visibility = Visibility.Collapsed;
+
+            dispatcherTimer.IsEnabled = false;
         }
         private void addMember(object sender, RoutedEventArgs e)
         {
@@ -49,19 +61,36 @@ namespace GUI
             string madoan = MaDoan_name.Text;
             string ngaybatdau = NgayBatDau_name.Text;
             string ngayketthuc = NgayKetThuc_name.Text;
-            List<CustomerInformationDTO> customers = new List<CustomerInformationDTO>();
-            customers.Add(new CustomerInformationDTO { HoTen = HoTenLead_name.Text, CMND = CMNDLead_name.Text });
-            for(int i = 0; i < listMember_name.Items.Count; i++)
+            string lead_name = HoTenLead_name.Text;
+            string lead_idcard = CMNDLead_name.Text;
+            if (madoan.Trim().Length > 0 && ngaybatdau.Trim().Length > 0 && ngayketthuc.Trim().Length > 0 && lead_name.Trim().Length > 0 && lead_idcard.Trim().Length > 0)
             {
-                CustomerInformationDTO temp = (CustomerInformationDTO)listMember_name.Items[i];
-                customers.Add(temp);
+                List<CustomerInformationDTO> customers = new List<CustomerInformationDTO>();
+                customers.Add(new CustomerInformationDTO { HoTen = lead_name, CMND = lead_idcard });
+                for (int i = 0; i < listMember_name.Items.Count; i++)
+                {
+                    CustomerInformationDTO temp = (CustomerInformationDTO)listMember_name.Items[i];
+                    customers.Add(temp);
+                }
+                EmployeeBUS.InsertTransaction(madoan, customers, ngaybatdau, ngayketthuc);
+                alert_success.Visibility = Visibility.Visible;
+                dispatcherTimer.Start();
             }
-            Console.WriteLine("madoan: " + madoan);
-            Console.WriteLine("ngaybatdau: " + ngaybatdau);
-            Console.WriteLine("ngayketthuc: " + ngayketthuc);
-            Console.WriteLine("soluongcustomers: " + customers.Count.ToString());
-
-            EmployeeBUS.InsertTransaction(madoan, customers, ngaybatdau, ngayketthuc);
+            else
+            {
+                alert_error.Visibility = Visibility.Visible;
+                dispatcherTimer.Start();
+            }
+        }
+        private void clearInformation(object sender, RoutedEventArgs e)
+        {
+            MaDoan_name.Clear();
+            HoTenLead_name.Clear();
+            CMNDLead_name.Clear();
+            tempMembers.Clear();
+            listMember_name.Items.Refresh();
+            NgayBatDau_name.Text = "";
+            NgayKetThuc_name.Text = "";
         }
     }
 }
