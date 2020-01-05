@@ -28,7 +28,8 @@ namespace GUI
 
         private void Window_Loaded_DetailTransaction(object sender, RoutedEventArgs e)
         {
-            List<DetailRoomReservedDTO> listDetail = DetailRoomReservedBUS.LoadDetailRoomReserved(Global.account.Id_GiaoDich);
+            Global.roomsOrdered = DetailRoomReservedBUS.LoadDetailRoomReserved(Global.account.Id_GiaoDich);
+            List<DetailRoomReservedDTO> listDetail = Global.roomsOrdered;
             if (listDetail == null)
             {
                 noDetail.Visibility = Visibility.Visible;
@@ -38,6 +39,30 @@ namespace GUI
                 noDetail.Visibility = Visibility.Collapsed;
                 listRoomOrder.ItemsSource = listDetail;
             }
+        }
+
+        private void SelectItemRemove(object sender, MouseButtonEventArgs e)
+        {
+            if (listRoomOrder.SelectedItems.Count > 0)
+            {
+                removeDetailTransaction_name.IsEnabled = true;
+            }
+            else
+            {
+                removeDetailTransaction_name.IsEnabled = false;
+            }
+        }
+
+        private void removeDetailTransaction(object sender, RoutedEventArgs e)
+        {
+            if (listRoomOrder.SelectedItems.Count > 0)
+            {
+                DetailRoomReservedDTO tmp = (DetailRoomReservedDTO)listRoomOrder.SelectedItems[0];
+                AccountBUS.RemoveDetailTransaction(tmp.Id_GiaoDich, tmp.Id_ChiTietGiaoDich);
+                Global.roomsOrdered = DetailRoomReservedBUS.LoadDetailRoomReserved(Global.account.Id_GiaoDich);
+                listRoomOrder.ItemsSource = Global.roomsOrdered;
+            }
+            removeDetailTransaction_name.IsEnabled = false;
         }
     }
 }

@@ -11,7 +11,8 @@
 
     <Grid>
         <Button Click="reserveRoom" Background="#28a745" BorderBrush="#28a745" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,25,0">Đặt phòng</Button>
-        <ListView MouseUp="selectItemRoom" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden" x:Name="listRoomOrdered"  Margin="20,70,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="161" Width="881">
+        <TextBlock Visibility="Collapsed" x:Name="noRoomReserved" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,90,0,0">Không có phòng được chọn </TextBlock>
+        <ListView MouseUp="selectItemRoom" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden" x:Name="listRoomChoosen"  Margin="20,70,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="161" Width="881">
             <ListView.ItemTemplate >
                 <DataTemplate DataType="RoomDTO">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Width="865">
@@ -70,21 +71,24 @@
             </ListView.ItemTemplate>
         </ListView>
         <ComboBox
+            SelectionChanged="listMember_SelectionChanged"
             Name="listMember"
             materialDesign:HintAssist.Hint="Họ tên"
             IsEditable="False"
             DisplayMemberPath="HoTen"
+            SelectedValuePath="Id"
             Style="{StaticResource MaterialDesignFloatingHintComboBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="26,242,0,0" Width="160">
         </ComboBox>
-        <Button Click="addPersonToRoom" BorderBrush="#ffc107" Background="#ffc107" Foreground="#212529" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="194,250,0,0">
+        <Button x:Name="addPersonToRoom_name" IsEnabled="False" Click="addPersonToRoom" BorderBrush="#ffc107" Background="#ffc107" Foreground="#212529" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="194,250,0,0">
             <materialDesign:PackIcon Kind="ArrowDropDownCircle"/>
         </Button>
-        <Button Click="removePerSonInRoom" BorderBrush="#dc3545" Background="#dc3545" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="247,250,0,0" Padding="0" Width="32">
+        <Button x:Name="removePerSonInRoom_name" IsEnabled="False" Click="removePerSonInRoom" BorderBrush="#dc3545" Background="#dc3545" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="247,250,0,0" Padding="0" Width="32">
             <materialDesign:PackIcon Kind="RemoveCircle"/>
         </Button>
-        <ListView MouseUp="selectItemRoomReserved" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden" x:Name="listRoomReserved"  Margin="20,298,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="219" Width="881">
+        <TextBlock Visibility="Collapsed"  x:Name="noRoomOrdered" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,195">Không có phòng được đặt chỗ</TextBlock>
+        <ListView MouseUp="selectItemRoomOrdered" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden" x:Name="listRoomOrdered"  Margin="20,298,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="219" Width="881">
             <ListView.ItemTemplate >
-                <DataTemplate DataType="DetailRoomReservedDTO">
+                <DataTemplate DataType="DetailReservedDTO">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Width="865">
                         <TextBox  Text="{Binding HoTen}" IsReadOnly="True"
                       Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="430" FontSize="13">
@@ -116,5 +120,21 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <materialDesign:TransitioningContent Visibility="Collapsed" Name="alert_success" OpeningEffect="{materialDesign:TransitionEffect SlideInFromRight, Duration=0:0:0.4}">
+            <Border Background="#f6ffed" CornerRadius="4" BorderBrush=" #b7eb8f" BorderThickness="1" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,15,20,0">
+                <StackPanel  Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Height="40" Width="210">
+                    <materialDesign:PackIcon Foreground="#52c41a" Kind="CommentTick" Height="30" Width="24" Margin="18,5,7,5" />
+                    <TextBlock FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Center" Height="18" Margin="0,10,0,12" Foreground="#D8000000">Đặt chỗ thành công</TextBlock>
+                </StackPanel>
+            </Border>
+        </materialDesign:TransitioningContent>
+        <materialDesign:TransitioningContent Name="alert_error" Visibility="Collapsed" OpeningEffect="{materialDesign:TransitionEffect SlideInFromRight, Duration=0:0:0.4}">
+            <Border Background="#fff1f0" CornerRadius="4" BorderBrush="#ffa39e" BorderThickness="1" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,15,21,0">
+                <StackPanel  Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Height="40" Width="187">
+                    <materialDesign:PackIcon Foreground="#f5222d" Kind="CommentRemove" Height="30" Width="24" Margin="16,5,7,5" />
+                    <TextBlock FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Center" Height="18" Margin="0,10,0,12" Foreground="#D8000000">Đặt chỗ thất bại</TextBlock>
+                </StackPanel>
+            </Border>
+        </materialDesign:TransitioningContent>
     </Grid>
 </Page>

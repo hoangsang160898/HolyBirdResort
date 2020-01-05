@@ -28,7 +28,6 @@ namespace GUI
         private DispatcherTimer dispatcherTimer;
         public Employee_CreateAccount()
         {
-            //Thời gian báo lỗi khi nhập user hoặc pass
             dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
             dispatcherTimer.Interval = new TimeSpan(0, 0, 2);

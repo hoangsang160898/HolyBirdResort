@@ -42,11 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountDAO.cs" />
+    <Compile Include="CustomerDAO.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="DetailRoomReservedDAO.cs" />
     <Compile Include="EmployeeDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoomDAO.cs" />
+    <Compile Include="TransactionDAO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">

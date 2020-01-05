@@ -22,16 +22,8 @@ namespace GUI
     /// </summary>
     public partial class Customer_SearchRoom : Page
     {
-        List<RoomDTO> tempRooms = new List<RoomDTO>();
-        List<RoomDTO> tempRoomsChoosen = new List<RoomDTO>();
         public Customer_SearchRoom()
         {
-            tempRooms.Add(new RoomDTO { Id = "12312", SoTang = "1", TrangThai = "0", HinhThuc = "2 giường đơn", HangPhong = "Thường", Gia = "750000" });
-            tempRooms.Add(new RoomDTO { Id = "12321312", SoTang = "2", TrangThai = "1", HinhThuc = "1 giường đôi", HangPhong = "Thường", Gia = "750000" });
-            tempRooms.Add(new RoomDTO { Id = "123ew12", SoTang = "2", TrangThai = "0", HinhThuc = "2 giường đôi", HangPhong = "Trung", Gia = "900000" });
-            tempRooms.Add(new RoomDTO { Id = "12321f12", SoTang = "3", TrangThai = "0", HinhThuc = "1 giường đơn", HangPhong = "Cao", Gia = "1500000" });
-            tempRooms.Add(new RoomDTO { Id = "123ew1322", SoTang = "1", TrangThai = "1", HinhThuc = "2 giường đôi", HangPhong = "Trung", Gia = "850000" });
-            tempRooms.Add(new RoomDTO { Id = "12321f1112", SoTang = "3", TrangThai = "1", HinhThuc = "2 giường đơn", HangPhong = "Cao", Gia = "1800000" });
             InitializeComponent();
         }
 
@@ -112,7 +104,7 @@ namespace GUI
         {
             listSearchRoom.ItemsSource = Global.roomsEmpty;
             listRoomChoosen.ItemsSource = Global.roomsChoosen;
-            if (Global.roomsEmpty.Count == 0)
+            if (Global.roomsEmpty== null)
             {
                 noRoomEmpty.Visibility = Visibility.Visible;
             }

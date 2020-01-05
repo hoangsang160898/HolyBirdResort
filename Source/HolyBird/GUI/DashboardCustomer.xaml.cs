@@ -84,6 +84,10 @@ namespace GUI
         private void Window_Loaded_Customer(object sender, RoutedEventArgs e)
         {
             Global.roomsEmpty = RoomBUS.LoadRoomEmptyAll();
+            Global.roomsOrdered = DetailRoomReservedBUS.LoadDetailRoomReserved(Global.account.Id_GiaoDich);
+            Global.transaction = TransactionBUS.GetTransaction(Global.account.Id_GiaoDich);
+            Global.customers = CustomerBUS.LoadCustomer(Global.account.Id_GiaoDich);
+            Global.customersWillOrder = CustomerBUS.LoadCustomer(Global.account.Id_GiaoDich);
         }
     }
 }

@@ -29,6 +29,7 @@ begin tran
 
 	if not exists (select * from ChiTietGiaoDich where ID_GiaoDich = @MaGiaoDich) 
 	begin
+			delete from ThietHai where ID_GiaoDich = @MaGiaoDich
 		delete from TaiKhoan where ID_GiaoDich = @MaGiaoDich
 		if(@@ERROR <> 0)
 		begin
@@ -42,11 +43,13 @@ begin tran
 			rollback tran
 			return
 		end
+
+
 	end
 commit tran
 go
 
-exec usp_HuyChiTietGiaoDich 31,13
+exec usp_HuyChiTietGiaoDich 1,2
 
 go
 

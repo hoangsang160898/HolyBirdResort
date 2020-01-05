@@ -16,5 +16,13 @@ namespace BUS
                 return null;
             return Global.account;
         }
+        public static void RemoveDetailTransaction(string id_giaodich, string id_chitietgiaodich)
+        {
+            AccountDAO.RemoveDetailTransaction(id_giaodich, id_chitietgiaodich);
+        }
+        public static void InsertRoomOrdered(List<DetailReservedDTO> roomsOrdered, string madoan)
+        {
+            AccountDAO.InsertRoomOrdered(roomsOrdered, madoan);
+        }
     }
 }

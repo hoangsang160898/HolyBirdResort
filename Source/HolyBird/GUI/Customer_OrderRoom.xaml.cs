@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DTO;
 using BUS;
+using System.Windows.Threading;
+
 namespace GUI
 {
     /// <summary>
@@ -21,64 +23,153 @@ namespace GUI
     /// </summary>
     public partial class Customer_OrderRoom : Page
     {
-        List<RoomDTO> tempRoomOrdered = new List<RoomDTO>();
-        List<CustomerDTO> tempMembers = new List<CustomerDTO>();
-        List<DetailRoomReservedDTO> tempRoomReserved = new List<DetailRoomReservedDTO>();
+        private DispatcherTimer dispatcherTimer;
         public Customer_OrderRoom()
         {
-            tempRoomOrdered.Add(new RoomDTO { HangPhong = "Thường", Id = "123", SoTang = "2", HinhThuc = "1 giường đôi" });
-            tempRoomOrdered.Add(new RoomDTO { HangPhong = "Trung", Id = "1123", SoTang = "1", HinhThuc = "2 giường đôi" });
-            tempRoomOrdered.Add(new RoomDTO { HangPhong = "Cao cấp", Id = "12223", SoTang = "3", HinhThuc = "2 giường đơn" });
-            tempRoomOrdered.Add(new RoomDTO { HangPhong = "Cao cấp", Id = "12223", SoTang = "3", HinhThuc = "2 giường đơn" });
-            tempMembers.Add(new CustomerDTO { HoTen = "Truong Quang", Id = "sds2" });
-            tempMembers.Add(new CustomerDTO { HoTen = "Huynh Lam Phu Si", Id = "sd22s2" });
-            tempMembers.Add(new CustomerDTO { HoTen = "Le Hoang Sang", Id = "sds2" });
-            tempMembers.Add(new CustomerDTO { HoTen = "Nguyen Thi Thu Quyen", Id = "sds2" });
-            tempRoomReserved.Add(new DetailRoomReservedDTO { HoTen = "Truong Quang", MaPhong = "31231" });
-            tempRoomReserved.Add(new DetailRoomReservedDTO { HoTen = "Truong Quang", MaPhong = "31231" });
-            tempRoomReserved.Add(new DetailRoomReservedDTO { HoTen = "Truong Quang", MaPhong = "31231" });
-            tempRoomReserved.Add(new DetailRoomReservedDTO { HoTen = "Truong Quang", MaPhong = "31231" });
-            tempRoomReserved.Add(new DetailRoomReservedDTO { HoTen = "Trrqewrang", MaPhong = "31231" });
-            tempRoomReserved.Add(new DetailRoomReservedDTO { HoTen = "Truoneqwrqewg Quang", MaPhong = "31231" });
+            dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 2);
             InitializeComponent();
         }
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            alert_error.Visibility = Visibility.Collapsed;
+            alert_success.Visibility = Visibility.Collapsed;
 
+            dispatcherTimer.IsEnabled = false;
+        }
         private void reserveRoom(object sender, RoutedEventArgs e)
         {
-
+            if (listRoomOrdered.Items.Count == Global.customers.Count)
+            {
+                AccountBUS.InsertRoomOrdered(Global.roomsReserved, Global.transaction.MaDoan);
+                Global.roomsReserved.Clear();
+                Global.roomsChoosen.Clear();
+                listRoomChoosen.Items.Refresh();
+                listRoomOrdered.Items.Refresh();
+                alert_success.Visibility = Visibility.Visible;
+                dispatcherTimer.Start();
+                noRoomOrdered.Visibility = Visibility.Visible;
+                noRoomReserved.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                alert_error.Visibility = Visibility.Visible;
+                dispatcherTimer.Start();
+            }
         }
 
         private void Window_Loaded_RoomOrdered(object sender, RoutedEventArgs e)
         {
-            listMember.ItemsSource = tempMembers;
-            listMember.SelectedIndex = 0;
-            listRoomOrdered.ItemsSource = tempRoomOrdered;
-            listRoomReserved.ItemsSource = tempRoomReserved;
+
+            if (Global.roomsOrdered != null)
+            {
+                foreach (DetailRoomReservedDTO item in Global.roomsOrdered)
+                {
+                    if (Global.customersWillOrder != null && Global.customersWillOrder.Count > 0)
+                    {
+                        var itemToRemove = Global.customersWillOrder.Find(r => r.Id == item.Id_KhachHang);
+                        if (itemToRemove != null)
+                        {
+                            Global.customersWillOrder.Remove(itemToRemove);
+                        }
+                    }
+                }
+            }
+            listMember.ItemsSource = Global.customersWillOrder;
+            listRoomOrdered.ItemsSource = Global.roomsReserved;
+            listRoomChoosen.ItemsSource = Global.roomsChoosen;
+
+            if (Global.roomsChoosen.Count == 0)
+            {
+                noRoomReserved.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                noRoomReserved.Visibility = Visibility.Collapsed;
+            }
+            if (Global.roomsReserved.Count == 0)
+            {
+                noRoomOrdered.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                noRoomOrdered.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void addPersonToRoom(object sender, RoutedEventArgs e)
         {
+            if (listRoomChoosen.SelectedItems.Count > 0 && listMember.SelectedValue != null)
+            {
+                RoomDTO tmp = (RoomDTO)listRoomChoosen.SelectedItems[0];
 
+                DetailReservedDTO tempDetailReserved = new DetailReservedDTO();
+                tempDetailReserved.MaKhachHang = listMember.SelectedValue.ToString();
+                tempDetailReserved.HoTen = listMember.Text;
+                tempDetailReserved.MaPhong = tmp.Id;
+                tempDetailReserved.NgayBatDau = Global.transaction.NgayBatDau;
+                tempDetailReserved.NgayKetThuc = Global.transaction.NgayKetThuc;
+
+                Global.roomsReserved.Add(tempDetailReserved);
+
+                listRoomOrdered.Items.Refresh();
+                noRoomOrdered.Visibility = Visibility.Collapsed;
+
+                var itemToRemove = Global.customersWillOrder.Find(r => r.Id == listMember.SelectedValue.ToString());
+                if (itemToRemove != null)
+                {
+                    Global.customersWillOrder.Remove(itemToRemove);
+                }
+                listMember.Items.Refresh();
+            }
+            addPersonToRoom_name.IsEnabled = false;
         }
 
         private void removePerSonInRoom(object sender, RoutedEventArgs e)
         {
-
+            if (listRoomOrdered.SelectedItems.Count > 0)
+            {
+                DetailReservedDTO tmp = (DetailReservedDTO)listRoomOrdered.SelectedItems[0];
+                var itemToAdd = Global.customers.Find(r => r.Id == tmp.MaKhachHang);
+                if (itemToAdd != null)
+                {
+                    Global.customersWillOrder.Add(itemToAdd);
+                }
+                listMember.Items.Refresh();
+                var itemRoomToRemove = Global.roomsReserved.Find(r => r.MaKhachHang == tmp.MaKhachHang);
+                if (itemRoomToRemove != null)
+                {
+                    Global.roomsReserved.Remove(itemRoomToRemove);
+                }
+                listRoomOrdered.Items.Refresh();
+                if (listRoomOrdered.Items.Count == 0)
+                {
+                    noRoomOrdered.Visibility = Visibility.Visible;
+                }  
+            }
+            removePerSonInRoom_name.IsEnabled = false;
         }
 
-        private void listRoomReserved_MouseUp(object sender, MouseButtonEventArgs e)
+        private void selectItemRoomOrdered(object sender, MouseButtonEventArgs e)
         {
-
-        }
-
-        private void selectItemRoomReserved(object sender, MouseButtonEventArgs e)
-        {
-
+            removePerSonInRoom_name.IsEnabled = true;
         }
 
         private void selectItemRoom(object sender, MouseButtonEventArgs e)
         {
+            if (listMember.SelectedValue != null)
+            {
+                addPersonToRoom_name.IsEnabled = true;
+            }
+        }
 
+        private void listMember_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (listRoomChoosen.SelectedItems.Count > 0)
+            {
+                addPersonToRoom_name.IsEnabled = true;
+            }
         }
     }
 }
