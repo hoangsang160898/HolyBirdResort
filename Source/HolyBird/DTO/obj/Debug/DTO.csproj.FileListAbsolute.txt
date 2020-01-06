@@ -1,5 +1,0 @@
-C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\DTO\bin\Debug\DTO.dll
-C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\DTO\bin\Debug\DTO.pdb
-C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\DTO\obj\Debug\DTO.csprojAssemblyReference.cache
-C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\DTO\obj\Debug\DTO.dll
-C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\DTO\obj\Debug\DTO.pdb
