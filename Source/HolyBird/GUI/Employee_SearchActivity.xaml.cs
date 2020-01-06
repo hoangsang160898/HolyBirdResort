@@ -25,31 +25,36 @@ namespace GUI
         List<ActivityDTO> tempTransactions = new List<ActivityDTO>();
         public Employee_SearchActivity()
         {
-            tempTransactions.Add(new ActivityDTO { Id = "123", MaDoan = "34567", TrangThai = "waiting" });
-            tempTransactions.Add(new ActivityDTO { Id = "1243", MaDoan = "324567", TrangThai = "received" });
-            tempTransactions.Add(new ActivityDTO { Id = "1253", MaDoan = "314567", TrangThai = "waiting" });
-            tempTransactions.Add(new ActivityDTO { Id = "1263", MaDoan = "346567", TrangThai = "paid" });
-            tempTransactions.Add(new ActivityDTO { Id = "1273", MaDoan = "374567", TrangThai = "received" });
-            tempTransactions.Add(new ActivityDTO { Id = "122133", MaDoan = "34567", TrangThai = "received" });
-            tempTransactions.Add(new ActivityDTO { Id = "1243123123", MaDoan = "32452167", TrangThai = "paid" });
-            tempTransactions.Add(new ActivityDTO { Id = "1289876675", MaDoan = "31456327", TrangThai = "paid" });
-            tempTransactions.Add(new ActivityDTO { Id = "127674463", MaDoan = "34652e67", TrangThai = "paid" });
-            tempTransactions.Add(new ActivityDTO { Id = "126663373", MaDoan = "3745d1s67", TrangThai = "paid" });
             InitializeComponent();
         }
 
         private void cancelRoom(object sender, RoutedEventArgs e)
         {
-
+            if (listTransaction.Items.Count > 0)
+            {
+                ActivityDTO item = (ActivityDTO)listTransaction.SelectedItems[0];
+                ActivityBUS.CancelRoom(item.Id);
+            }
+            tempTransactions = ActivityBUS.LoadActivities();
+            listTransaction.ItemsSource = tempTransactions;
+            listTransaction.Items.Refresh();
         }
 
         private void AcceptRoom(object sender, RoutedEventArgs e)
         {
-
+            if (listTransaction.Items.Count > 0)
+            {
+                ActivityDTO item = (ActivityDTO)listTransaction.SelectedItems[0];
+                ActivityBUS.AcceptRoom(item.MaDoan);
+            }
+            tempTransactions = ActivityBUS.LoadActivities();
+            listTransaction.ItemsSource = tempTransactions;
+            listTransaction.Items.Refresh();
         }
 
         private void Window_Loaded_Transactions(object sender, RoutedEventArgs e)
         {
+            tempTransactions = ActivityBUS.LoadActivities();
             listTransaction.ItemsSource = tempTransactions;
         }
 
@@ -58,7 +63,7 @@ namespace GUI
             if (listTransaction.SelectedItems.Count > 0)
             {
                 ActivityDTO item = (ActivityDTO)listTransaction.SelectedItems[0];
-                if (item.TrangThai == "waiting")
+                if (item.TrangThai == "Đặt trước")
                 {
                     cancelRoom_name.IsEnabled = true;
                     acceptRoom_name.IsEnabled = true;
@@ -75,24 +80,24 @@ namespace GUI
         {
             switch (value)
             {
-                case "received":
+                case "Trống":
+                    return "Chưa đặt phòng";
+                case "Đang sử dụng":
                     return "Đã nhận phòng";
-                case "paid":
-                    return "Đã thanh toán";
             }
-            return "Chưa nhận phòng";
+            return "Đã đặt trước";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             switch (value)
             {
-                case "received":
+                case "Trống":
+                    return "Chưa đặt phòng";
+                case "Đang sử dụng":
                     return "Đã nhận phòng";
-                case "paid":
-                    return "Đã thanh toán";
             }
-            return "Chưa nhận phòng";
+            return "Đã đặt trước";
         }
     }
 }
