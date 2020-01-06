@@ -2,7 +2,7 @@
 go
 
 -- Tra cuu giao dich
-alter proc usp_TraCuuGiaoDich
+create procedure usp_TraCuuGiaoDich
 	 @MaDoan varchar(10),@IsActive bit,@minDate date, @maxDate date
 as
 begin tran
@@ -18,7 +18,7 @@ begin tran
 	if @minDate is not null
 		set @SqlQuery = @SqlQuery + ' and datediff(day,NgayBatDau,@minDate) >= 0 '
 	if @maxDate is not null
-		set @SqlQuery = @SqlQuery + ' and atediff(day,NgayKetThuc,@maxDate) <= 0 '
+		set @SqlQuery = @SqlQuery + ' and datediff(day,NgayKetThuc,@maxDate) <= 0 '
 
 	SET @ParamDefinition = '@MaDoan varchar(10),
 							@IsActive bit,
@@ -36,6 +36,6 @@ begin tran
 commit tran
 go
 
-exec usp_TraCuuGiaoDich null,'True',null,null
+exec usp_TraCuuGiaoDich N'DA007','True', N'2020-01-07',N'2020-01-08'
 
 select * from GiaoDich

@@ -21,5 +21,6 @@ namespace BUS
         public static List<CustomerDTO> customersWillOrder;
         public static List<CustomerDTO> customers;
         public static List<DetailReservedDTO> roomsReserved = new List<DetailReservedDTO>();
+        public static string IdTransactionWhenPayment = "";
     }
 }

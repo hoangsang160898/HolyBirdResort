@@ -12,6 +12,12 @@ namespace DTO
         string dongia;
         string thoigian;
         string thanhtien;
+        string id_chitietgiaodich;
+        public string Id_ChiTietGiaoDich
+        {
+            get => id_chitietgiaodich;
+            set => id_chitietgiaodich = value;
+        }
         public string Id_Phong
         {
             get => id_phong;
@@ -34,7 +40,7 @@ namespace DTO
         }
         public BillChildDTO()
         {
-            id_phong = dongia = thoigian = thanhtien = "";
+            id_phong = dongia = thoigian = thanhtien =id_chitietgiaodich= "";
         }
     }
 }

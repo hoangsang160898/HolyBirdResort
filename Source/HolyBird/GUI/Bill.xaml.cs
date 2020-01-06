@@ -20,27 +20,34 @@ namespace GUI
     /// </summary>
     public partial class Bill : Window
     {
-        List<BillChildDTO> tempBillChildred = new List<BillChildDTO>();
+        List<BillChildDTO> tempBillChildren = new List<BillChildDTO>();
         public Bill()
         {
-            tempBillChildred.Add(new BillChildDTO { Id_Phong = "123123", DonGia = "12312312", ThoiGian = "11", ThanhTien = "12312312" });
-            tempBillChildred.Add(new BillChildDTO { Id_Phong = "1223123", DonGia = "123122312", ThoiGian = "10", ThanhTien = "12312312" });
-            tempBillChildred.Add(new BillChildDTO { Id_Phong = "123sdd123", DonGia = "123123312", ThoiGian = "1", ThanhTien = "12312312" });
-            tempBillChildred.Add(new BillChildDTO { Id_Phong = "1212ww3123", DonGia = "123112312", ThoiGian = "2", ThanhTien = "12312312" });
-            tempBillChildred.Add(new BillChildDTO { Id_Phong = "123d123", DonGia = "12312s312", ThoiGian = "1.5", ThanhTien = "12312312" });
-            tempBillChildred.Add(new BillChildDTO { Id_Phong = "1212ww3123", DonGia = "123112312", ThoiGian = "2", ThanhTien = "12312312" });
-            tempBillChildred.Add(new BillChildDTO { Id_Phong = "123d123", DonGia = "12312s312", ThoiGian = "1.5", ThanhTien = "12312312" });
             InitializeComponent();
         }
 
         private void Window_Loaded_Bill(object sender, RoutedEventArgs e)
         {
-            listBillChildren.ItemsSource = tempBillChildred;
+            tempBillChildren = BillChildBUS.LoadBillChild(Global.IdTransactionWhenPayment);
+            listBillChildren.ItemsSource = tempBillChildren;
+            TransactionBUS.UpdateSumMoney(Global.IdTransactionWhenPayment);
+            TransactionDTO billResult = TransactionBUS.GetTransaction(Global.IdTransactionWhenPayment);
+            sumMoney_name.Text = billResult.TongTien;
+            IdTransaction_name.Text = billResult.Id;
+            IdMaDoan_name.Text = billResult.MaDoan;
+            nameLeader_name.Text = TransactionBUS.GetNameLeader(billResult.Id_DaiDien);
         }
 
-        private void payBill(object sender, RoutedEventArgs e)
+        private void PayBill(object sender, RoutedEventArgs e)
         {
-
+            for (int i = 0; i < listBillChildren.Items.Count; i++)
+            {
+                BillChildDTO temp = (BillChildDTO)listBillChildren.Items[i];
+                BillChildBUS.RemoveBillChild(temp.Id_ChiTietGiaoDich);
+            }
+            payBill_name.IsEnabled = false;
+            payBill_name.Content = "Đã thanh toán";
+            Global.IdTransactionWhenPayment = "";
         }
     }
 }

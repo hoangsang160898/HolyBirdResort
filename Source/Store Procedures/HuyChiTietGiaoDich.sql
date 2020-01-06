@@ -2,7 +2,7 @@
 go
 
 -- Huy chi tiet Giao Dich
-alter proc usp_HuyChiTietGiaoDich
+create procedure usp_HuyChiTietGiaoDich
 	@MaChiTietGiaoDich int, @MaGiaoDich int
 as
 begin tran
@@ -29,7 +29,13 @@ begin tran
 
 	if not exists (select * from ChiTietGiaoDich where ID_GiaoDich = @MaGiaoDich) 
 	begin
-			delete from ThietHai where ID_GiaoDich = @MaGiaoDich
+		delete from ThietHai where ID_GiaoDich = @MaGiaoDich
+		if(@@ERROR <> 0)
+		begin
+			rollback tran
+			return
+		end
+
 		delete from TaiKhoan where ID_GiaoDich = @MaGiaoDich
 		if(@@ERROR <> 0)
 		begin

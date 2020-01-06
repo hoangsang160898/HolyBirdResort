@@ -103,9 +103,9 @@ end
 go
 
 declare @temp DatChoTemp;
-insert into @temp (MaKhachHang,MaPhong,NgayBatDau,NgayKetThuc) values (26,1,'2020-01-02','2020-01-02'),(27,2,'2020-01-02','2020-01-02'),(28,3,'2020-01-02','2020-01-02')
+insert into @temp (MaKhachHang,MaPhong,NgayBatDau,NgayKetThuc) values (11,2,'2020-01-07','2020-01-08'),(12,2,'2020-01-07','2020-01-08'),(13,5,'2020-01-07','2020-01-08')
 
-execute usp_DatCho @temp, 'D001'
+execute usp_DatCho @temp, 'DA007'
 
 go
 

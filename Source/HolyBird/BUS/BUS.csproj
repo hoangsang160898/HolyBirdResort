@@ -42,7 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountBUS.cs" />
+    <Compile Include="BillChildBUS.cs" />
     <Compile Include="CustomerBUS.cs" />
+    <Compile Include="DamagesBUS.cs" />
     <Compile Include="DetailRoomReservedBUS.cs" />
     <Compile Include="EmployeeBUS.cs" />
     <Compile Include="Global.cs" />

@@ -16,6 +16,7 @@ namespace DTO
         string ngaybatdau;
         string ngayketthuc;
         string tongtien;
+        string isactive;
         public string Id
         {
             get => id;
@@ -56,11 +57,16 @@ namespace DTO
             get => tongtien;
             set => tongtien = value;
         }
+        public string IsActive
+        {
+            get => isactive;
+            set => isactive = value;
+        }
         public TransactionDTO()
         {
-            id = madoan = songuoi=id_daidien=sophong=ngaybatdau=ngayketthuc=tongtien = "";
+            id = madoan = songuoi=id_daidien=sophong=ngaybatdau=ngayketthuc=tongtien =isactive= "";
         }
-        public TransactionDTO(string id, string madoan, string id_daidien, string songuoi, string sophong, string ngayketthuc, string ngaybatdau, string tongtien)
+        public TransactionDTO(string id, string madoan, string id_daidien, string songuoi, string sophong, string ngayketthuc, string ngaybatdau, string tongtien, string isactive)
         {
             this.id = id;
             this.madoan = madoan;
@@ -70,6 +76,7 @@ namespace DTO
             this.ngaybatdau = ngaybatdau;
             this.ngayketthuc = ngayketthuc;
             this.tongtien = tongtien;
+            this.isactive = isactive;
         }
     }
 }

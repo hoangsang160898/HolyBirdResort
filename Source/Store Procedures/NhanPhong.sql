@@ -2,7 +2,7 @@
 go
 
 -- Huy Giao Dich
-alter proc usp_NhanPhong
+CREATE PROCEDURE usp_NhanPhong
 	 @MaDoan varchar(10)
 as
 begin tran
@@ -30,6 +30,13 @@ begin tran
 		return
 	end
 	
+	update GiaoDich set IsActive = 1 where ID = @MaGiaoDich
+	if(@@ERROR <> 0)
+	begin
+		rollback tran
+		return
+	end
+
 commit tran
 go
 
