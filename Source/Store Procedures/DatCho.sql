@@ -21,7 +21,7 @@ begin tran
 	select @SoPhong = count(Distinct MaPhong) from @DanhSachDatCho
 	declare @SoPhongGoc int = (select SoPhong from GiaoDich with (nolock) where MaDoan = @MaDoan)
 
-	update GiaoDich set SoPhong = @SoPhongGoc + @SoPhong where MaDoan = @MaDoan
+	update GiaoDich set SoPhong = @SoPhong where MaDoan = @MaDoan
 	if(@@ERROR <> 0)
 	begin
 		rollback tran

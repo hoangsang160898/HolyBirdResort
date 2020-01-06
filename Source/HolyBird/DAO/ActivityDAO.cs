@@ -13,8 +13,8 @@ namespace DAO
         static SqlConnection con;
         public static List<ActivityDTO> LoadActivities()
         {
-            string sTruyVan = @"select distinct (CTGD.ID_GiaoDich),GD.MaDoan,P.TrangThai
-                                from ChiTietGiaoDich CTGD join Phong P on CTGD.ID_Phong=P.ID join GiaoDich GD on GD.ID=CTGD.ID_GiaoDich";
+            string sTruyVan = @"select GD.ID, GD.MaDoan, GD.SoPhong, GD.IsActive
+                                from GiaoDich GD";
             con = DataProvider.OpenConnection();
             DataTable dt = DataProvider.GetDataTable(sTruyVan, con);
             if (dt.Rows.Count == 0)
@@ -25,10 +25,26 @@ namespace DAO
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 ActivityDTO activity = new ActivityDTO();
-                activity.Id = dt.Rows[i]["ID_GiaoDich"].ToString();
+                activity.Id = dt.Rows[i]["ID"].ToString();
                 activity.MaDoan = dt.Rows[i]["MaDoan"].ToString();
-                activity.TrangThai = dt.Rows[i]["TrangThai"].ToString();
-              
+                activity.SoPhong = dt.Rows[i]["SoPhong"].ToString();
+                activity.IsActive = dt.Rows[i]["IsActive"].ToString();
+                if (activity.IsActive == "" && activity.SoPhong == "")
+                {
+                    activity.TrangThai = "Đã tạo tài khoản";
+                }
+                if (activity.SoPhong != "" && activity.IsActive == "")
+                {
+                    activity.TrangThai = "Đã đặt trước";
+                }
+                if(activity.IsActive == "True" && activity.SoPhong != "")
+                {
+                    activity.TrangThai = "Đã nhận phòng";
+                }
+                if (activity.IsActive == "False" && activity.SoPhong != "")
+                {
+                    activity.TrangThai = "Đã thanh toán";
+                }
                 result.Add(activity);
             }
             DataProvider.CloseConnection(con);

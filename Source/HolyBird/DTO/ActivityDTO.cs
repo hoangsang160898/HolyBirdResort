@@ -11,6 +11,18 @@ namespace DTO
         string id;
         string madoan;
         string trangthai;
+        string sophong;
+        string isactive;
+        public string SoPhong
+        {
+            get => sophong;
+            set => sophong = value;
+        }
+        public string IsActive
+        {
+            get => isactive;
+            set => isactive = value;
+        }
         public string Id
         {
             get => id;

@@ -21,7 +21,6 @@ C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\GUI\obj\Debug\LogIn.g.
 C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\GUI\obj\Debug\Employee_Payment.g.cs
 C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\GUI\obj\Debug\Employee_SearchActivity.g.cs
 C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\GUI\obj\Debug\App.g.cs
-C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\GUI\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\GUI\obj\Debug\GUI_MarkupCompile.cache
 C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\GUI\obj\Debug\GUI_MarkupCompile.lref
 C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\GUI\obj\Debug\App.baml

@@ -56,6 +56,14 @@ namespace GUI
         {
             tempTransactions = ActivityBUS.LoadActivities();
             listTransaction.ItemsSource = tempTransactions;
+            if (tempTransactions != null)
+            {
+                noActivity.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                noActivity.Visibility = Visibility.Visible;
+            }
         }
 
         private void selectItem(object sender, MouseButtonEventArgs e)
@@ -63,41 +71,49 @@ namespace GUI
             if (listTransaction.SelectedItems.Count > 0)
             {
                 ActivityDTO item = (ActivityDTO)listTransaction.SelectedItems[0];
-                if (item.TrangThai == "Đặt trước")
+                Console.WriteLine(item.IsActive);
+                if (item.TrangThai == "Đã thanh toán" || item.TrangThai == "Đã nhận phòng")
+                {
+                    cancelRoom_name.IsEnabled = false;
+                    acceptRoom_name.IsEnabled = false;
+                }
+                else if (item.TrangThai == "Đã đặt trước")
                 {
                     cancelRoom_name.IsEnabled = true;
                     acceptRoom_name.IsEnabled = true;
-                } else {
-                    cancelRoom_name.IsEnabled = false;
+                }
+                else
+                {
+                    cancelRoom_name.IsEnabled = true;
                     acceptRoom_name.IsEnabled = false;
                 }
             }
         }
     }
-    public class StatusOfRoomConverter : IValueConverter
-    {
-        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-        {
-            switch (value)
-            {
-                case "Trống":
-                    return "Chưa đặt phòng";
-                case "Đang sử dụng":
-                    return "Đã nhận phòng";
-            }
-            return "Đã đặt trước";
-        }
+    //public class StatusOfRoomConverter : IValueConverter
+    //{
+    //    public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+    //    {
+    //        switch (value)
+    //        {
+    //            case "Trống":
+    //                return "Chưa đặt phòng";
+    //            case "Đang sử dụng":
+    //                return "Đã nhận phòng";
+    //        }
+    //        return "Đã đặt trước";
+    //    }
 
-        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-        {
-            switch (value)
-            {
-                case "Trống":
-                    return "Chưa đặt phòng";
-                case "Đang sử dụng":
-                    return "Đã nhận phòng";
-            }
-            return "Đã đặt trước";
-        }
-    }
+    //    public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+    //    {
+    //        switch (value)
+    //        {
+    //            case "Trống":
+    //                return "Chưa đặt phòng";
+    //            case "Đang sử dụng":
+    //                return "Đã nhận phòng";
+    //        }
+    //        return "Đã đặt trước";
+    //    }
+    //}
 }
