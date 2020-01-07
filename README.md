@@ -1,5 +1,5 @@
 # Hệ Quản Trị Cơ Sở Dữ Liệu
-## Đề tài: HolyBird
+## Đề tài: HolyBird Resort
 ### Giảng Viên: Tuấn Nguyên Hoài Đức
 
 #### Thành viên nhóm:
