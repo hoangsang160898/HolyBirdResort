@@ -1,8 +1,0 @@
-C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\DAO\bin\Debug\DAO.dll
-C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\DAO\bin\Debug\DAO.pdb
-C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\DAO\bin\Debug\DTO.dll
-C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\DAO\bin\Debug\DTO.pdb
-C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\DAO\obj\Debug\DAO.csprojAssemblyReference.cache
-C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\DAO\obj\Debug\DAO.csproj.CopyComplete
-C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\DAO\obj\Debug\DAO.dll
-C:\Users\hoang\OneDrive\Desktop\DBMS_TNHD\Source\HolyBird\DAO\obj\Debug\DAO.pdb
